@@ -13,6 +13,12 @@ module.exports = {
         contentBase: path.resolve('./test/test-app/')
     },
 
+    resolve: {
+        alias: {
+            tlRouter: path.resolve(__dirname, '../../src/main.js')
+        }
+    },
+
     module: {
         rules: [
             {
