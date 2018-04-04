@@ -1,5 +1,3 @@
-import { state as tlRouter } from 'tlRouter'
-
 module.exports = {
-    tlRouter
+    counter: 0
 }

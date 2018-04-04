@@ -1,5 +1,4 @@
-import { actions as tlRouter } from 'tlRouter'
-
 module.exports = {
-    tlRouter
+    countUp: () => state => ({ counter: state.counter + 1}),
+    countDown: () => state => ({ counter: state.counter - 1})
 }

@@ -6,14 +6,14 @@ import actions from './actions'
 import Index from './components/index'
 import Preferences from './components/preferences'
 
-import { Router } from 'tlRouter'
+import { Router, withTlRouter } from 'tlRouter'
 
 const router = Router({
     '/': Index,
     '/preferences': Preferences
 })
 
-const dispatch = app(
+const dispatch = withTlRouter(app)(
     state,
     actions,
     router,

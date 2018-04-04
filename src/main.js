@@ -2,13 +2,29 @@
 
 import { h } from 'hyperapp'
 
-export const actions = {
-    navigate: location => () => ({ location })
-}
+const TLROUTER_SLICE_KEY = '__TLROUTER__'
 
-export const state = {
-    location: '/'
-}
+const tlRouterStateBase = Object.freeze({
+    [TLROUTER_SLICE_KEY]: {
+        location: '/'
+    }
+})
+
+const tlRouterActionsBase = Object.freeze({
+    [TLROUTER_SLICE_KEY]: {
+        navigate: location => () => ({ location })
+    }
+})
+
+// HOA app function
+// bind our internal state and actions to the app's state and actions,
+// and return the call to app.
+export const withTlRouter = app => (state, actions, view, mountPoint) => app(
+    Object.assign({}, state, tlRouterStateBase),
+    Object.assign({}, actions, tlRouterActionsBase),
+    view,
+    mountPoint
+)
 
 export const Router = routes => {
     if (routes == null || Object.keys(routes).length === 0) {
@@ -19,23 +35,14 @@ export const Router = routes => {
         throw new Error('No fallback or base route; please provide a route matching either "/" or "ROUTE_FALLBACK".')
     }
 
-    return (state, actions) => {
-        if (state.tlRouter == null) {
-            throw new Error('"tlRouter" object not found in app state. Did you configure your app correctly? (Check tlRouter documentation)')
-        }
-
-        return routes[state.tlRouter.location] || routes['ROUTE_FALLBACK'] || routes['/']
-    }
+    return (state, actions) => routes[state[TLROUTER_SLICE_KEY].location] || routes['ROUTE_FALLBACK'] || routes['/']
 }
 
 export const Link = ({ to, href }, children) => (state, actions) => {
-    if (actions.tlRouter == null) {
-        throw new Error('"tlRouter" object not found in app actions. Did you configure your app correctly? (Check tlRouter documentation.)')
-    }
-
     if (href == null) href = '#'
 
     return (
-        <a href={href} onclick={actions.tlRouter.navigate.bind(null, to)}>{children}</a>
+        <a href={href} onclick={actions[TLROUTER_SLICE_KEY].navigate.bind(null, to)}>{children}</a>
     )
 }
+
