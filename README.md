@@ -49,7 +49,7 @@ const router = Router({
 })
 ```
 
-- Call HOA function to create your app. Partially applied function takes the same args as `hyperapp.app()`.
+- Call HOA function to create your app. Partially applied function takes the same args as `hyperapp.app()`. Pass the above router object as the `view` argument.
 
 ```js
 const dispatch = withTlRouter(app)(
@@ -60,7 +60,7 @@ const dispatch = withTlRouter(app)(
 )
 ```
 
-- Render Link components inside any components that should link elsewhere
+- Render `Link` components inside any components that should link elsewhere
 
 ```jsx
 import { Link } from '@geordiep/h_tlrouter'
@@ -106,7 +106,7 @@ See "point of interest" comments for the use of module features.
 
 ```jsx
 import { app, h } from 'hyperapp'
-import { Router, withTlRouter, Link } from 'tlRouter'
+import { Router, withTlRouter, Link } from '@geordiep/h_tlrouter'
 
 // Components
 const IndexPg = (state, actions) => (
@@ -149,7 +149,7 @@ const router = Router({
 })
 
 /*** Point Of Interest ***/
-/// Creating app using provided HOA function
+/// Creating app using provided HOA function, passing router object as view
 const dispatch = withTlRouter(app)(
   stateBase,
   actionsBase,

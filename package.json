@@ -6,6 +6,10 @@
     "description": "Tiny higher-order app providing top-level routing for Hyperapp",
     "main": "dist/main.js",
     "module": "src/main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GeordieP/h_tlrouter"
+    },
     "files": [
         "src",
         "dist"
