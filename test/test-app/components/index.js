@@ -1,10 +1,10 @@
 import { h } from 'hyperapp'
 
-import { Link } from 'tlRouter'
+import NavBar from './navbar'
 
 module.exports = (state, actions) => (
     <div>
-        <Link to='/preferences'>Prefs</Link>
+        <NavBar />
         <h1>Index</h1>
         <p>Counter: {state.counter}</p>
         <button onclick={ actions.countUp }>+</button>

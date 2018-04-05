@@ -1,0 +1,11 @@
+a {
+    margin: 0 10px;
+}
+
+#customID {
+    font-family: arial;
+}
+
+.bolded {
+    font-weight: bold;
+}

@@ -5,12 +5,14 @@ import actions from './actions'
 
 import Index from './components/index'
 import Preferences from './components/preferences'
+import Details from './components/details'
 
 import { Router, withTlRouter } from 'tlRouter'
 
 const router = Router({
     '/': Index,
-    '/preferences': Preferences
+    '/preferences': Preferences,
+    '/details': Details
 })
 
 const dispatch = withTlRouter(app)(
