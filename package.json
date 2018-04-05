@@ -10,6 +10,14 @@
         "src",
         "dist"
     ],
+    "keywords": [
+        "hyperapp",
+        "top-level",
+        "routing",
+        "router",
+        "navigation",
+        "switch"
+    ],
     "scripts": {
         "start": "npm run dev",
         "dev": "webpack-dev-server --mode development --hot --inline --watch --config ./test/test-app/webpack.testapp.js",
