@@ -49,7 +49,7 @@ const router = Router({
 })
 ```
 
-- Call HOA function to create your app. Partially applied function takes the same args as hyperapp.app()  does.
+- Call HOA function to create your app. Partially applied function takes the same args as `hyperapp.app()`.
 
 ```js
 const dispatch = withTlRouter(app)(
@@ -67,7 +67,7 @@ import { Link } from '@geordiep/h_tlrouter'
 
 const myComponent = (state, actions) => (
   <div>
-    <p>Hello!</p>
+    <p>Hello</p>
     <Link to='/details'>See Details</Link>
   </div>
 )
