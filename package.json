@@ -1,9 +1,9 @@
 {
-    "name": "@geordiep/hyperapp-tlrouter",
+    "name": "@geordiep/h_tlrouter",
     "version": "1.0.0",
     "author": "Geordie P [github/GeordieP] <gp@gpow.ca>",
     "license": "MIT",
-    "description": "Small top-level router library for Hyperapp",
+    "description": "Tiny higher-order app providing top-level routing for Hyperapp",
     "main": "dist/main.js",
     "module": "src/main.js",
     "files": [

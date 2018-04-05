@@ -4,14 +4,14 @@ import { h } from 'hyperapp'
 // name of app's actions/state slice reserved for the router
 const TLROUTER_SLICE_KEY = '__TLROUTER__'
 
-// router state object, gets added to app's state at key defined in TLROUTER_SLICE_KEY constant
+// router state object, gets added to app's state at key defined by TLROUTER_SLICE_KEY constant
 const tlRouterStateBase = Object.freeze({
     [TLROUTER_SLICE_KEY]: {
         location: '/'
     }
 })
 
-// router actions object, gets added to app's actions at key defined in TLROUTER_SLICE_KEY constant
+// router actions object, gets added to app's actions at key defined by TLROUTER_SLICE_KEY constant
 const tlRouterActionsBase = Object.freeze({
     [TLROUTER_SLICE_KEY]: {
         navigate: location => () => ({ location })
@@ -29,10 +29,16 @@ export const withTlRouter = app => (state, actions, view, mountPoint) =>
         mountPoint
     )
 
-// Main Router function.
-// Pass an object mapping strings to hyperapp component modules.
-// Returns a function that matches the component function shape that hyperapp expects.
-// Pass the returned function to the root hyperapp.app() call as the view argument.
+// Main Router function
+// Pass an object mapping strings (keys) to hyperapp component functions (values).
+// Returns a partially applied function that hyperapp recognizes as a component; it matches
+// the component function signature that hyperapp expects
+// (ie, a fn that accepts (state, actions), returns an h() call).
+//
+// Pass this returned partially applied function to the partially applied function returned by
+// withTlRouter(app) as the 'view' argument. Doing so will call hyperapp.app() and pass the router
+// down as our view component.
+//
 // When the router's "location" state property changes, we'll look through the routes map for
 // a match, and render the component provided.
 // If there's no match for the current location, render the component provided at key 'ROUTE_FALLBACK.
