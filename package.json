@@ -1,6 +1,6 @@
 {
     "name": "@geordiep/h_tlrouter",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "Geordie P [github/GeordieP] <gp@gpow.ca>",
     "license": "MIT",
     "description": "Tiny higher-order app providing top-level routing for Hyperapp",
